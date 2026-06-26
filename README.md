@@ -88,26 +88,95 @@ GROQ_MODEL_TIER1=llama-3.1-8b-instant
 GROQ_MODEL_TIER3=llama-3.3-70b-versatile
 ```
 
-### Run Locally (Python)
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Start the FastAPI server:
-   * **Direct local execution**:
-     ```bash
-     python -m app.main
-     ```
-   * **Development execution with hot reload**:
-     ```bash
-     python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
-     ```
-3. Test health:
-   ```bash
-   curl http://localhost:8000/health
-   ```
+
+
+Run Locally
+Option 1 (Recommended): Using uv
+#### Install uv
+
+macOS/Linux
+
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+
+Restart your terminal, then verify:
+
+uv --version
+
+
+Windows (PowerShell)
+
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+
+Verify:
+
+uv --version
+
 
 ---
+
+#### Create a virtual environment
+
+uv venv
+
+
+#### Activate it
+
+macOS/Linux
+
+source .venv/bin/activate
+
+
+Windows
+
+.venv\Scripts\activate
+
+
+#### Install dependencies
+
+uv pip install -r requirements.txt
+
+
+#### Run the application
+
+macOS/Linux
+
+python3 -m app.main
+
+
+or
+
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+
+Windows
+
+python -m app.main
+
+
+or
+
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+
+---
+
+Option 2: Using pip
+macOS/Linux
+
+python3 -m pip install -r requirements.txt
+
+
+or
+
+pip3 install -r requirements.txt
+
+
+Windows
+
+python -m pip install -r requirements.txt
+
 
 ## Deployment & Containerization Guide
 
